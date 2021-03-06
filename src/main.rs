@@ -70,7 +70,7 @@ fn intchecker(mut tip: i16) -> i16{
 /*ynchecker will do everything necessary to check the for the correct input of either a y or a n.
 It calls the rdin function to get input. Then it will check for empyt string so that there is no broken code.
 Then it checks the chars and if it is not within the range of acceptable values, it will use recursion to do 
-get a new value and run the checks again.*/
+get a new value and run the checks again. This is done by Reference.*/
 fn ynchecker(selector: &mut char){
     let mut temp = String::new();
     temp = rdin();
@@ -122,6 +122,8 @@ fn main() {
     let mut temp = String::new();
     let mut tip: i16;
 
+    println!("Welcome to the restaurant of Rusty Lake!"); //Do you get the reference here? xD
+
     //Loops through the entire body of the code to allow multiple iterations of orders.
     while selector != 'n'{
         //Needs to be cleared from any past iterations.
@@ -129,7 +131,7 @@ fn main() {
         i = 0;
 
         //Specifically for clearing the vector, instead of wasting memory creating a new one each time.
-        //Will iterate through the length of the vector using  <----------------------------------- Add what .rev does here.
+        //Will iterate through the length of the vector using .rev, which is basically just a backwards iterator.
         for i in (0..itemPrice.len()).rev(){
             itemPrice.remove(i);
         }
